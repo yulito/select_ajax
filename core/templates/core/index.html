@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>combobox anidado con ajax</title>
+    {# Cargamos la librería #}
+	  {% load bootstrap4 %}
+ 
+	  {# CSS Bootstrap #}
+	  {% bootstrap_css %}
+
+    <link rel="stylesheet" href="{% static 'CSS/index.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>HOLA</h1>
+        <form>  <!-- class="form-inline" -->
+            <div class="form-group">
+                <div>
+                    <label for="">Categoria</label>
+                        <select class="form-control md-2" name="cat" id="idCat" onchange="filtrar()" required>
+                          <option selected disabled>Selecciona Categoria...</option>
+                          {% for cat in cat %}
+                            <option value="{{cat.idCategoria}}">{{cat.nomCategoria}}</option>
+                          {% endfor %}
+                        </select>
+                </div>
+                <br>
+                <div>
+                    <label for="">Producto</label>
+                        <select class="form-control md-2" name="prod" id="idProd" required>
+                            <option selected disabled>Selecciona Producto...</option>
+                        </select>
+                </div>
+        </form>
+        </div>
+        
+    </div>
+
+        <!-------------------------------------------------------------------------------------------->
+        {# JS y jQuery Bootstrap #}
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        {% bootstrap_javascript jquery='full' %}  
+        
+        <!-- REQUIRED SCRIPTS -->
+       
+        <!-- jQuery -->
+        <script src="{% static 'js/Crud.js' %}"></script>
+        
+</body>
+</html>

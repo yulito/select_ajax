@@ -1,0 +1,17 @@
+<!-- {% for cat in cat %}
+    <option value="{{}}">{{}}</option>
+    {% endfor %} -->
+
+<!-- {% for prod in prod %}
+    <option value="{{prod.}}">{{prod.}}</option>
+    {% endfor %} -->
+
+var cat = $('#idCat');
+    $('#idProd option').val() = cat;
+
+    ------------
+
+    <option selected disabled>Selecciona Producto...</option>
+    {% for prod in prod %}
+    <option value="{{prod.idProducto}}">{{prod.nomProducto}}</option> <!--{{prod.nomProducto}}-->
+    {% endfor %}  
