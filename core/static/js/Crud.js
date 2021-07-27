@@ -1,5 +1,6 @@
 $(document).ready(function(){
     //filtrar();
+    Guardar();
 });
 
 function filtrar(){   
@@ -22,3 +23,22 @@ function filtrar(){
             }
         });
     }
+
+function Guardar(){   
+    $("#idGuardar").click(function(jqXHR){
+        console.log('ESTOY EN GUARDAR, por javascript')
+        //var prod = $('form').serializeArray();
+        var prod = $('#idProd ').val()
+        console.log(prod)
+        $.ajax({
+            type:'POST',
+            url: 'crear',
+            data: {'prod': prod},
+            //dataType: 'json',
+            success: function (data){
+                $('.mensaje').html(data)
+            }
+        })
+    })
+    
+}  

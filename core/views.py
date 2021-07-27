@@ -14,6 +14,18 @@ def index(request):
     data = {'cat':cat}
     return render(request,'core/index.html' , data)
 
+@csrf_exempt
+def crear(request):
+    print('Estoy en CREAR')
+    prod_ = request.POST['prod']
+    _prod = Producto.objects.get(idProducto = prod_)
+    com = Compra.objects.create(
+        productoo = _prod
+    )
+    com.save()
+        
+    return HttpResponse('Guardado')
+
 #DEVUELVE DATOS EN FORMA DE ARREGLO POR OBJETO
 @csrf_exempt
 def filtro(request):
